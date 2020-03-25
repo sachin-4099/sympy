@@ -224,7 +224,7 @@ def limit_seq(expr, n=None, trials=5):
         if L1 is not None:
             L2 = _limit_seq(expr.xreplace({n: n2}), n2, trials)
             if L1 != L2:
-                if L1.is_comparable and L2.is_comparable:
+                if L1.is_comparable and L2 is not None and L2.is_comparable:
                     return AccumulationBounds(Min(L1, L2), Max(L1, L2))
                 else:
                     return None

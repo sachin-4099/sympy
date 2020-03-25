@@ -120,6 +120,10 @@ def test_issue_10382():
     n = Symbol('n', integer=True)
     assert limit_seq(fibonacci(n+1)/fibonacci(n), n) == S.GoldenRatio
 
+def test_issue_18543():
+    n = Symbol('n')
+    assert limit_seq(cos(pi*n/2), n) is None
+
 
 @XFAIL
 def test_limit_seq_fail():
